@@ -5,6 +5,7 @@ import {PetService} from './pet.service';
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.component.html',
+  styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
   pets: Pet[];

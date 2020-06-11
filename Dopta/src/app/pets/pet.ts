@@ -4,4 +4,5 @@ export class Pet {
   specie: string;
   size: string;
   sex: string;
+  description: string;
 }
