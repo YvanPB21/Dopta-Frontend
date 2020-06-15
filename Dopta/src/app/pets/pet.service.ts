@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable()
 export class PetService {
 
-  private urlEndPoint = 'http://localhost:8080/api/pets';
+  private urlEndPoint = 'http://localhost:8080/pets';
   constructor(private http: HttpClient) { }
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});

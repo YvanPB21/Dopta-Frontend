@@ -1,7 +1,10 @@
+import {Specie} from './specie';
+
+
 export class Pet {
   id: number;
   name: string;
-  specie: string;
+  species: string;
   size: string;
   sex: string;
   description: string;
