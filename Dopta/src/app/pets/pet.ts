@@ -1,5 +1,3 @@
-import {Specie} from './specie';
-
 
 export class Pet {
   id: number;

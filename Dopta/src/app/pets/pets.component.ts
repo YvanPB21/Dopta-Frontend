@@ -8,7 +8,13 @@ import {PetService} from './pet.service';
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
+  sizes: string[] = ['Pequeño', 'Mediano', 'Grande'];
+  sexes: string[] = ['Hembra', 'Macho'];
+  species: string [] = ['Perro', 'Gato', 'Conejo'];
   pets: Pet[];
+  searchToken: string;
+
+
   constructor(private petService: PetService) { }
 
   ngOnInit(){
