@@ -22,9 +22,11 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 const routes: Routes = [
-  {path: 'pets', component: PetsComponent}
+  {path: 'pets', component: PetsComponent},
+  {path: 'userprofile', component: UserprofileComponent}
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes: Routes = [
     PetsComponent,
     MainNavComponent,
     FilterPipe,
-    QuienesSomosComponent
+    QuienesSomosComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,
