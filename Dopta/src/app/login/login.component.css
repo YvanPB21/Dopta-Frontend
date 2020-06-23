@@ -1,0 +1,14 @@
+.card{
+  max-width: 50%;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 45px;
+  margin-top: 1px;
+}
+.cel{
+  margin-right: 25px;
+}
+.sexo p{
+  font-size: 20px;
+
+}

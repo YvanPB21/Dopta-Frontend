@@ -1,0 +1,58 @@
+<div align="center">
+  <mat-card class="card">
+    <img src="https://www.fundacion-affinity.org/sites/default/files/el-gato-necesita-tener-acceso-al-exterior.jpg"
+         style="width: 25%; margin-bottom: 10px">
+    <mat-card-title>Registro</mat-card-title>
+    <div>
+    <mat-form-field class="example-full-width" style="margin-right: 20px" [formGroup]="form" >
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Yvan Segundo" formControlName="firstName" [ngClass]="{'is-invalid':form.get('firstName').touched
+      && form.get('firstName').invalid}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="margin-right: 20px" [formGroup]="form">
+      <mat-label>Apellido</mat-label>
+      <input matInput placeholder="Lopez Trettenero" formControlName="lastName" [ngClass]="{'is-invalid':form.get('lastName').touched
+      && form.get('lastName').invalid}">
+    </mat-form-field>
+    </div>
+    <div>
+    <mat-form-field class="cel" [formGroup]="form">
+      <mat-label>Celular</mat-label>
+      <input matInput placeholder="999956659" formControlName="thelephone" [ngClass]="{'is-invalid':form.get('thelephone').touched
+      && form.get('thelephone').invalid}">
+    </mat-form-field>
+    </div>
+    <div class="sexo" style="margin-top: 15px">
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Masculino</mat-radio-button>
+        <mat-radio-button value="2">Femenino</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-form-field class="example-full-width" style="margin-top: 10px">
+      <mat-label>Email</mat-label>
+      <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="example-container" style="margin-top: 35px">
+      <mat-form-field appearance="fill" [formGroup]="form">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched
+      && form.get('password').invalid}">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" style="align-items: center; margin-right: 20px" routerLink="/pets" [disabled]="!form.valid || !emailFormControl.valid">Aceptar</button>
+      <button mat-raised-button color="primary" style="align-items: center; margin-right: 20px" routerLink="/pets">Cancelar</button>
+    </div>
+  </mat-card>
+</div>
