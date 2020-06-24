@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import {OwlModule} from 'ngx-owl-carousel';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {PetsComponent} from './pets/pets.component';
+import {PostsComponent} from './user/posts/posts.component';
 import {RouterModule, Routes} from '@angular/router';
-import {PetService} from './pets/pet.service';
+import {PostService} from './user/posts/post.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -20,13 +20,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-import {FilterPipe} from './pets/filter.pipe';
+import {FilterPipe} from './user/posts/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
-import { UserprofileComponent } from './userprofile/userprofile.component';
-import { PublicationComponent } from './publication/publication.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { PublicationComponent } from './user/publication/publication.component';
 
 const routes: Routes = [
-  {path: 'pets', component: PetsComponent},
+  {path: 'pets', component: PostsComponent},
   {path: 'userprofile', component: UserprofileComponent},
   {path: 'publicacion', component: PublicationComponent}
 ];
@@ -34,7 +34,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PetsComponent,
+    PostsComponent,
     MainNavComponent,
     FilterPipe,
     QuienesSomosComponent,
@@ -61,7 +61,7 @@ const routes: Routes = [
 
 
   ],
-  providers: [PetService],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
