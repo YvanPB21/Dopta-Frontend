@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {OwlModule} from 'ngx-owl-carousel';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PetsComponent} from './pets/pets.component';
@@ -23,10 +23,12 @@ import {FormsModule} from '@angular/forms';
 import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { PublicationComponent } from './publication/publication.component';
 
 const routes: Routes = [
   {path: 'pets', component: PetsComponent},
-  {path: 'userprofile', component: UserprofileComponent}
+  {path: 'userprofile', component: UserprofileComponent},
+  {path: 'publicacion', component: PublicationComponent}
 ];
 
 @NgModule({
@@ -36,10 +38,12 @@ const routes: Routes = [
     MainNavComponent,
     FilterPipe,
     QuienesSomosComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    PublicationComponent
   ],
   imports: [
     BrowserModule,
+    OwlModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
@@ -53,7 +57,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+
 
   ],
   providers: [PetService],

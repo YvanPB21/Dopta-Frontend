@@ -1,0 +1,17 @@
+.card{
+  max-width: 500px;
+  margin: 20px;
+}
+.title{
+  justify-content: center
+}
+.icon {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 5px;
+  right: 0.05%;
+}
+.carac{
+  margin: 0.005% 5% 0.005%;
+  display: inline-block;
+}
