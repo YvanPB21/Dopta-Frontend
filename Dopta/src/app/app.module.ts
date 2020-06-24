@@ -19,12 +19,17 @@ import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { RealizarPublicacionComponent } from './realizar-publicacion/realizar-publicacion.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 const routes: Routes = [
-  {path: 'pets', component: PetsComponent}
+  {path: 'pets', component: PetsComponent},
+  {path: 'publicar', component: RealizarPublicacionComponent}
 ];
 
 @NgModule({
@@ -33,7 +38,8 @@ const routes: Routes = [
     PetsComponent,
     MainNavComponent,
     FilterPipe,
-    QuienesSomosComponent
+    QuienesSomosComponent,
+    RealizarPublicacionComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +56,11 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [PetService],
   bootstrap: [AppComponent]
