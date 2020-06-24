@@ -24,7 +24,8 @@ import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 
 const routes: Routes = [
-  {path: 'pets', component: PetsComponent}
+  {path: 'pets', component: PetsComponent},
+  {path: 'quienes-somos', component: QuienesSomosComponent}
 ];
 
 @NgModule({
@@ -33,7 +34,7 @@ const routes: Routes = [
     PetsComponent,
     MainNavComponent,
     FilterPipe,
-    QuienesSomosComponent
+    QuienesSomosComponent,
   ],
   imports: [
     BrowserModule,

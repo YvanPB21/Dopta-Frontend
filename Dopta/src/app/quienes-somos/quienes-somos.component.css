@@ -1,0 +1,25 @@
+.example-card {
+  max-width: 20%;
+  max-height: 80%;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+}
+
+.example-card2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  height: 100%;
+}
