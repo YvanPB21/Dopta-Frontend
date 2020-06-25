@@ -22,10 +22,13 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { DonarComponent } from './donar/donar.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 const routes: Routes = [
   {path: 'pets', component: PetsComponent},
-  {path: 'quienes-somos', component: QuienesSomosComponent}
+  {path: 'quienes-somos', component: QuienesSomosComponent},
+  {path: 'donar', component: DonarComponent}
 ];
 
 @NgModule({
@@ -35,6 +38,7 @@ const routes: Routes = [
     MainNavComponent,
     FilterPipe,
     QuienesSomosComponent,
+    DonarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule
 
   ],
   providers: [PetService],
