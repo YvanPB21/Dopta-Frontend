@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
 
 
     if (searchToken == null) {
-      searchToken = "";
+      searchToken = '';
     }
     searchToken = searchToken.toLowerCase();
     return items.filter(elem => elem.name.toLowerCase().indexOf(searchToken) > -1);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Pet} from './pet';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Pet} from '../models/pet';
 
 @Injectable()
 export class PetService {

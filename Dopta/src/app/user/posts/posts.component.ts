@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
-import { Post} from './post';
-import {PostService} from './post.service';
+import { Post} from '../../models/post';
+import {PostService} from '../../services/post.service';
 
 @Component({
   selector: 'app-pets',
@@ -14,9 +14,7 @@ export class PostsComponent implements OnInit {
   pets: Post[];
   searchToken: string;
 
-
   constructor(private petService: PostService) { }
-
   ngOnInit(){
     this.petService.getClientes().subscribe(
       pets => this.pets = pets
