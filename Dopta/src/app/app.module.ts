@@ -24,7 +24,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { RealizarPublicacionComponent } from './realizar-publicacion/realizar-publicacion.component';
 import { DonarComponent } from './donar/donar.component';
 import {MatRadioModule} from '@angular/material/radio';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterPipe} from './user/posts/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
