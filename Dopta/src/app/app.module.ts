@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import {OwlModule} from 'ngx-owl-carousel';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {PetsComponent} from './pets/pets.component';
+import {PostsComponent} from './user/posts/posts.component';
 import {RouterModule, Routes} from '@angular/router';
-import {PetService} from './pets/pet.service';
+import {PostService} from './user/posts/post.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,19 +19,19 @@ import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FilterPipe} from './pets/filter.pipe';
-import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { RealizarPublicacionComponent } from './realizar-publicacion/realizar-publicacion.component';
-
-import { UserprofileComponent } from './userprofile/userprofile.component';
-import { PublicationComponent } from './publication/publication.component';
 import { DonarComponent } from './donar/donar.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {FormsModule} from '@angular/forms';
+import {FilterPipe} from './user/posts/filter.pipe';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { PublicationComponent } from './user/publication/publication.component';
+
 const routes: Routes = [
-  {path: 'pets', component: PetsComponent},
+  {path: 'pets', component: PostsComponent},
   {path: 'userprofile', component: UserprofileComponent},
   {path: 'publicacion', component: PublicationComponent},
   {path: 'donar', component: DonarComponent},
@@ -42,7 +42,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PetsComponent,
+    PostsComponent,
     MainNavComponent,
     FilterPipe,
     QuienesSomosComponent,
@@ -74,7 +74,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [PetService],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
