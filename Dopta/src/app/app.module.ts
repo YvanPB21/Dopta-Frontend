@@ -31,7 +31,8 @@ const routes: Routes = [
   {path: 'userprofile', component: UserprofileComponent},
   {path: 'publicacion', component: PublicationComponent},
   {path: 'donar', component: DonarComponent},
-  {path: 'quienes-somos', component: QuienesSomosComponent},
+  {path: 'quienes-somos', component: QuienesSomosComponent}
+  ];
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ const routes: Routes = [
     FilterPipe,
     QuienesSomosComponent,
     UserprofileComponent,
-    PublicationComponent
+    PublicationComponent,
     DonarComponent
   ],
   imports: [
