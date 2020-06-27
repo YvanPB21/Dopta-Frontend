@@ -19,9 +19,13 @@ import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { RealizarPublicacionComponent } from './realizar-publicacion/realizar-publicacion.component';
+
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { PublicationComponent } from './publication/publication.component';
 import { DonarComponent } from './donar/donar.component';
@@ -31,7 +35,8 @@ const routes: Routes = [
   {path: 'userprofile', component: UserprofileComponent},
   {path: 'publicacion', component: PublicationComponent},
   {path: 'donar', component: DonarComponent},
-  {path: 'quienes-somos', component: QuienesSomosComponent}
+  {path: 'quienes-somos', component: QuienesSomosComponent},
+  {path: 'publicar', component: RealizarPublicacionComponent}
   ];
 
 @NgModule({
@@ -43,7 +48,8 @@ const routes: Routes = [
     QuienesSomosComponent,
     UserprofileComponent,
     PublicationComponent,
-    DonarComponent
+    DonarComponent,
+    RealizarPublicacionComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,11 @@ const routes: Routes = [
     MatSelectModule,
     MatInputModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [PetService],
   bootstrap: [AppComponent]

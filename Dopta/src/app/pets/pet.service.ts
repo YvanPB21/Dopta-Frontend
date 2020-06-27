@@ -25,7 +25,6 @@ export class PetService {
 
   update(pet: Pet): Observable<Pet>{
     return this.http.put<Pet>(`${this.urlEndPoint}/${pet.id}`, pet, {headers: this.httpHeaders});
-
   }
 
 }
