@@ -24,12 +24,14 @@ import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { PublicationComponent } from './publication/publication.component';
-
+import { DonarComponent } from './donar/donar.component';
+import {MatRadioModule} from '@angular/material/radio';
 const routes: Routes = [
   {path: 'pets', component: PetsComponent},
   {path: 'userprofile', component: UserprofileComponent},
-  {path: 'publicacion', component: PublicationComponent}
-];
+  {path: 'publicacion', component: PublicationComponent},
+  {path: 'donar', component: DonarComponent},
+  {path: 'quienes-somos', component: QuienesSomosComponent},
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ const routes: Routes = [
     QuienesSomosComponent,
     UserprofileComponent,
     PublicationComponent
+    DonarComponent
   ],
   imports: [
     BrowserModule,
@@ -58,8 +61,7 @@ const routes: Routes = [
     MatSelectModule,
     MatInputModule,
     FormsModule,
-
-
+    MatRadioModule
   ],
   providers: [PetService],
   bootstrap: [AppComponent]
