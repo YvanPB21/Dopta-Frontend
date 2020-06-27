@@ -2,7 +2,8 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">Dopta</h1>
-    <span class="material-icons" routerLink="/userprofile">account_circle</span>
+    <span class="material-icons" routerLink="/userprofile" style="cursor: pointer;">account_circle</span>
+    <button mat-button style="cursor: pointer;" *ngIf="isLogged" (click)="onLogOut()">LogOut</button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"

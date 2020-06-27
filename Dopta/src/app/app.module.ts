@@ -19,17 +19,28 @@ import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterPipe} from './pets/filter.pipe';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { PublicationComponent } from './publication/publication.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
+import { IndexComponent } from './index/index.component';
+import {interceptorProvider} from './interceptors/prod-interceptor.service';
+import { InicionsesionComponent } from './auth/inicionsesion/inicionsesion.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 const routes: Routes = [
+  { path: '', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  {path: 'prueba', component: InicionsesionComponent},
+  { path: 'registro', component: RegistroComponent },
   {path: 'pets', component: PetsComponent},
   {path: 'userprofile', component: UserprofileComponent},
-  {path: 'publicacion', component: PublicationComponent}
-];
+  {path: 'publicacion', component: PublicationComponent},
+  { path: '**', redirectTo: '', pathMatch: 'full' }
+  ];
 
 @NgModule({
   declarations: [
@@ -39,7 +50,11 @@ const routes: Routes = [
     FilterPipe,
     QuienesSomosComponent,
     UserprofileComponent,
-    PublicationComponent
+    PublicationComponent,
+    LoginComponent,
+    RegistroComponent,
+    IndexComponent,
+    InicionsesionComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +73,12 @@ const routes: Routes = [
     MatSelectModule,
     MatInputModule,
     FormsModule,
+    MatTabsModule,
+    ReactiveFormsModule,
 
 
   ],
-  providers: [PetService],
+  providers: [PetService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
