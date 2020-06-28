@@ -35,7 +35,7 @@ import {SpecieService} from './services/specie.service';
 import {PromotionService} from './services/promotion.service';
 
 const routes: Routes = [
-  {path: 'pets', component: PostsComponent},
+  {path: 'posts', component: PostsComponent},
   {path: 'userprofile', component: UserprofileComponent},
   {path: 'publicacion', component: PublicationComponent},
   {path: 'donar', component: DonarComponent},
