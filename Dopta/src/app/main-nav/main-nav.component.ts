@@ -1,5 +1,5 @@
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {TokenService} from '../service/token.service';
 
 /** @title Responsive sidenav */
@@ -9,7 +9,7 @@ import {TokenService} from '../service/token.service';
   templateUrl: 'main-nav.component.html',
   styleUrls: ['main-nav.component.css'],
 })
-export class MainNavComponent implements OnDestroy {
+export class MainNavComponent implements OnInit {
   mobileQuery: MediaQueryList;
   isLogged = false;
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
@@ -23,8 +23,10 @@ export class MainNavComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnDestroy(): void {
+  ngOnInit() {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+    console.log(this.isLogged);
+    console.log(this.tokenService.getToken());
     if (this.tokenService.getToken()) {
       this.isLogged = true;
     } else {

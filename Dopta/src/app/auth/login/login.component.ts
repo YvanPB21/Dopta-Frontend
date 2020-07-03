@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from '../../models/login-usuario';
 import { TokenService } from '../../service/token.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login',
@@ -49,19 +50,23 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginUsuario).subscribe(
       data => {
         this.isLogged = true;
-        console.log(this.loginUsuario.password);
+        console.log(this.loginUsuario);
 
         this.tokenService.setToken(data.token);
-        this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
+        const helper = new JwtHelperService();
+        const decodedToken = helper.decodeToken(this.tokenService.getToken());
+        this.tokenService.setUserId(decodedToken.jti);
         this.router.navigate(['/index']);
+        window.location.reload();
       },
       err => {
         this.isLogged = false;
         console.log(err.error.message);
       }
     );
+    console.log(this.loginUsuario);
   }
   private buildForm() {
     this.form = this.formBuilder.group({
