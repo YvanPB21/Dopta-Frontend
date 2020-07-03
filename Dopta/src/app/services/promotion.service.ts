@@ -5,7 +5,7 @@ import {Promotion} from '../models/promotion';
 
 @Injectable()
 export class PromotionService {
-  private urlEndPoint = 'http://localhost:8080/api/promotions';
+  private urlEndPoint = 'http://localhost:8080/api/promos';
 
   constructor(private http: HttpClient) {
   }
@@ -20,7 +20,7 @@ export class PromotionService {
     return this.http.post<Promotion>(this.urlEndPoint, promotion, {headers: this.httpHeaders});
   }
 
-  getPet(id): Observable<Promotion> {
+  getPromotionId(id): Observable<Promotion> {
     return this.http.get<Promotion>(`${this.urlEndPoint}/${id}`);
   }
 

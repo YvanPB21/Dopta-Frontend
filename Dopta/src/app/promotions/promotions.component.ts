@@ -9,9 +9,7 @@ import {Promotion} from '../models/promotion';
   styleUrls: ['./promotions.component.css']
 })
 export class PromotionsComponent implements OnInit {
-  sizes: string[] = ['Pequeño', 'Mediano', 'Grande'];
-  sexes: string[] = ['Hembra', 'Macho'];
-  species: string [] = ['Perro', 'Gato', 'Conejo'];
+
   promotions: Promotion[];
   searchToken: string;
 
@@ -20,7 +18,9 @@ export class PromotionsComponent implements OnInit {
 
   ngOnInit() {
     this.promotionService.getPromotions().subscribe(
-      promotions => this.promotions = promotions
+      promotions => {this.promotions = promotions;
+      console.log(promotions)
+      }
     );
   }
 }
