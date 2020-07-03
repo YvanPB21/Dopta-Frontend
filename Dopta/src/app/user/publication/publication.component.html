@@ -23,13 +23,15 @@
         <div class="carac">
           <span class="material-icons icon">pets</span>{{post.pet.species.name}}
         </div>
+        <div class="carac">
+          <span class="material-icons">thumb_up_alt</span>{{likes}}
+        </div>
       </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="containercomm">
     <mat-card-title>Comments</mat-card-title>
-    <mat-card class="com" *ngFor="let comment of comments" ca>
-      <!--      <mat-card-subtitle>{{comment.commenter.names}}</mat-card-subtitle>-->
+    <mat-card class="com" *ngFor="let comment of comments" >
       <mat-card-content>{{comment.content}}</mat-card-content>
     </mat-card>
   </mat-card>

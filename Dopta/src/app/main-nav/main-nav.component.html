@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <h1 class="example-app-name" routerLink="/posts" style="cursor: pointer;">Dopta</h1>
-    <span class="material-icons" routerLink="/userprofile" style="cursor: pointer;">account_circle</span>
+    <span class="material-icons" routerLink="/userprofile" style="cursor: pointer;" (click)="goToProfile(4)">account_circle</span>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -14,9 +14,8 @@
       <mat-nav-list>
         <a mat-list-item class="nav-link" routerLink="/posts">Inicio</a>
         <a mat-list-item class="nav-link" routerLink="/publicar">Publicar</a>
-        <a mat-list-item class="nav-link" routerLink="/userprofile">Mi Perfil</a>
-        <a mat-list-item class="nav-link" routerLink="/pets">Mis Publicaciones</a>
-        <a mat-list-item class="nav-link" routerLink="/pets">Mis Adopciones</a>
+        <a mat-list-item class="nav-link" (click)="goToProfile(4)">Mi Perfil</a>
+        <a mat-list-item class="nav-link" routerLink="/mypublications">Mis Publicaciones</a>
         <a mat-list-item class="nav-link" routerLink="/promotions">Promociones</a>
         <a mat-list-item class="nav-link" routerLink="/donar">Donar</a>
         <a mat-list-item class="nav-link" routerLink="/quienes-somos">¿Quiénes somos?</a>

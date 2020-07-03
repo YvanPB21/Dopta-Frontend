@@ -10,6 +10,8 @@ import {SizeService} from '../../services/size.service';
 import {Pet} from '../../models/pet';
 import {PetService} from '../../services/pet.service';
 import {Router} from '@angular/router';
+import {Like} from '../../models/like';
+import {LikeService} from '../../services/like.service';
 
 @Component({
   selector: 'app-pets',
@@ -22,9 +24,11 @@ export class PostsComponent implements OnInit {
   species: Specie[];
   posts: Post[];
   searchToken: string;
+  like: Like = new Like();
 
   constructor(private petService: PetService, private specieService: SpecieService
-          ,   private sexService: SexService, private sizeService: SizeService, private postService: PostService, private router: Router) {
+    ,         private sexService: SexService, private sizeService: SizeService, private postService: PostService,
+              private likeService: LikeService, private router: Router) {
 
   }
 
@@ -36,19 +40,26 @@ export class PostsComponent implements OnInit {
       }
     );
     this.specieService.getSpecies().subscribe(
-        species => this.species = species
-      );
+      species => this.species = species
+    );
     console.log(this.species);
     this.sexService.getSexes().subscribe(
-        sexes => this.sexes = sexes
-      );
-    this.sizeService.getSizes().subscribe(
-      sizes => this.sizes = sizes
+      sexes => this.sexes = sexes
     );
-    }
-    view(id){
+    this.sizeService.getSizes().subscribe(
+      sizes => {
+        this.sizes = sizes;
+      }
+    );
+  }
+
+  view(id) {
     console.log(id);
     this.router.navigate(['publication/', id]);
-    }
   }
+  likear(like, postId, likerId) {
+    this.likeService.create(like, postId, likerId);
+    console.log(like, postId, likerId);
+  }
+}
 

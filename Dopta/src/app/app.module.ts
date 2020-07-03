@@ -37,7 +37,8 @@ import {PromotionService} from './services/promotion.service';
 import {SexService} from './services/sex.service';
 import {CommentService} from './services/comment.service';
 import {UserService} from './services/user.service';
-import { AdopcionesComponent } from './user/adopciones/adopciones.component';
+import {LikeService} from './services/like.service';
+import { MypublicationsComponent } from './user/mypublications/mypublications.component';
 
 const routes: Routes = [
   {path: 'posts', component: PostsComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
   {path: 'donar', component: DonarComponent},
   {path: 'quienes-somos', component: QuienesSomosComponent},
   {path: 'publicar', component: RealizarPublicacionComponent},
-  {path: 'promotions', component: PromotionsComponent}
+  {path: 'promotions', component: PromotionsComponent},
+  {path: 'mypublications', component: MypublicationsComponent}
 ];
 
 @NgModule({
@@ -61,7 +63,7 @@ const routes: Routes = [
     DonarComponent,
     RealizarPublicacionComponent,
     PromotionsComponent,
-    AdopcionesComponent
+    MypublicationsComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers: [PostService, PetService, SpecieService, PromotionService, SexService, CommentService, UserService],
+  providers: [PostService, PetService, SpecieService, PromotionService, SexService, CommentService, UserService, LikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

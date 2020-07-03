@@ -6,6 +6,7 @@ import {Post} from '../../models/post';
 import {PostService} from '../../services/post.service';
 import {CommentService} from '../../services/comment.service';
 import {Comment} from '../../models/comment';
+import {LikeService} from '../../services/like.service';
 
 @Component({
   selector: 'app-publication',
@@ -16,8 +17,9 @@ export class PublicationComponent implements OnInit {
 
   post: Post = null;
   comments: Comment[];
+  likes: number;
   // tslint:disable-next-line:max-line-length
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private postService: PostService, private commentService: CommentService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private postService: PostService, private commentService: CommentService, private likeService: LikeService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +33,9 @@ export class PublicationComponent implements OnInit {
       comments => {
         this.comments = comments;
       }
+    );
+    this.likeService.getLikes(id).subscribe(
+      likes => this.likes = likes.length
     );
   }
     goToProfile(id) {

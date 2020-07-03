@@ -22,7 +22,7 @@
       <mat-label>Especie</mat-label>
       <mat-select>
         <mat-option>Ninguna</mat-option>
-        <mat-option *ngFor="let specie of species" [value]="specie" >{{specie.name}}</mat-option>
+        <mat-option *ngFor="let specie of species" [value]="specie">{{specie.name}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -34,20 +34,21 @@
       autocomplete="off">
   </mat-form-field>
 </div>
-<div align="center">
-  <mat-card class="example-card" *ngFor="let post of posts | filterPipe:searchToken" (click)="view(post.id)" style="cursor: pointer">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{post.pet.name}}</mat-card-title>
-      <mat-card-subtitle>{{post.pet.sex_id}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <img mat-card-image [src]="post.pet.image_url" style="height: 20%">
-      <p>{{post.pet.species.name}}</p>
-      <p>{{post.description}}</p>
-    </mat-card-content>
+<div class="div">
+  <mat-card class="example-card" *ngFor="let post of posts | filterPipe:searchToken"
+            style="cursor: pointer">
+    <div (click)="view(post.id)">
+      <mat-card-header>
+        <mat-card-title>{{post.pet.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img mat-card-image [src]="post.pet.image_url" class="image">
+        <p>{{post.pet.species.name}}</p>
+        <p>{{post.description}}</p>
+      </mat-card-content>
+    </div>
     <mat-card-actions>
-      <button mat-button>LIKE ❤</button>
+      <button mat-button (click)="likear(like,(post.id),(post.poster.id))">LIKE ❤</button>
       <button mat-button>ADOPT 🏘</button>
     </mat-card-actions>
   </mat-card>
