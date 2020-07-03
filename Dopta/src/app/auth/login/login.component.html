@@ -1,0 +1,32 @@
+<div class="text-center" *ngIf="isLogged; else loggedOut">
+  <h2>Ya has iniciado sesión</h2>
+</div>
+
+<ng-template #loggedOut>
+  <form [formGroup]="form" (ngSubmit)="onLogin()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field>
+              <input placeholder="user" formControlName="nombreUsuario" matInput type="nombreUsuario" [(ngModel)]="nombreUsuario">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field>
+              <input placeholder="password" formControlName="password" matInput type="password" [(ngModel)]="password">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</ng-template>

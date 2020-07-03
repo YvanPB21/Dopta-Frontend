@@ -19,16 +19,12 @@ import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {RealizarPublicacionComponent} from './realizar-publicacion/realizar-publicacion.component';
 import {DonarComponent} from './user/donar/donar.component';
 import {MatRadioModule} from '@angular/material/radio';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FilterPipe} from './util/filter.pipe';
-import {QuienesSomosComponent} from './quienes-somos/quienes-somos.component';
-import {UserprofileComponent} from './user/userprofile/userprofile.component';
-import {PublicationComponent} from './user/publication/publication.component';
 import {PromotionsComponent} from './promotions/promotions.component';
 import {PetService} from './services/pet.service';
 import {SpecieService} from './services/specie.service';
@@ -51,8 +47,26 @@ const routes: Routes = [
   {path: 'publicar', component: RealizarPublicacionComponent},
   {path: 'promotions', component: PromotionsComponent},
   {path: 'promocode/:id', component: PromocodeComponent},
-  {path: 'mypublications', component: MypublicationsComponent}
+  {path: 'mypublications', component: MypublicationsComponent},
+  { path: '', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  {path: 'prueba', component: InicionsesionComponent},
+  { path: 'registro', component: RegistroComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FilterPipe} from './pets/filter.pipe';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
+import { IndexComponent } from './index/index.component';
+import {interceptorProvider} from './interceptors/prod-interceptor.service';
+import { InicionsesionComponent } from './auth/inicionsesion/inicionsesion.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
+
 
 @NgModule({
   declarations: [
@@ -67,7 +81,11 @@ const routes: Routes = [
     RealizarPublicacionComponent,
     PromotionsComponent,
     PromocodeComponent,
-    MypublicationsComponent
+    MypublicationsComponent,
+    LoginComponent,
+    RegistroComponent,
+    IndexComponent,
+    InicionsesionComponent
   ],
   imports: [
     BrowserModule,
@@ -92,8 +110,9 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers: [PostService, PetService, SpecieService, PromotionService, SexService, CommentService, UserService, LikeService],
-  bootstrap: [AppComponent]
+  providers: [PostService, PetService, SpecieService, PromotionService, SexService, CommentService, UserService, LikeService,interceptorProvider],
+
+
 })
 export class AppModule {
 }
