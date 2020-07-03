@@ -33,8 +33,10 @@ import {PromotionsComponent} from './promotions/promotions.component';
 import {PetService} from './services/pet.service';
 import {SpecieService} from './services/specie.service';
 import {PromotionService} from './services/promotion.service';
+import {PromocodeComponent} from './promocode/promocode.component';
 
 import {SexService} from './services/sex.service';
+
 
 const routes: Routes = [
   {path: 'posts', component: PostsComponent},
@@ -43,7 +45,8 @@ const routes: Routes = [
   {path: 'donar', component: DonarComponent},
   {path: 'quienes-somos', component: QuienesSomosComponent},
   {path: 'publicar', component: RealizarPublicacionComponent},
-  {path: 'promotions', component: PromotionsComponent}
+  {path: 'promotions', component: PromotionsComponent},
+  {path: 'promocode/:id', component: PromocodeComponent}
 ];
 
 @NgModule({
@@ -57,7 +60,8 @@ const routes: Routes = [
     PublicationComponent,
     DonarComponent,
     RealizarPublicacionComponent,
-    PromotionsComponent
+    PromotionsComponent,
+    PromocodeComponent
   ],
   imports: [
     BrowserModule,
