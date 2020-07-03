@@ -1,22 +1,22 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Specie} from '../models/specie';
-import {PageSpecie} from '../models/pageSpecie';
+import {Sex} from '../models/sex';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class SpecieService {
+export class SexService {
 
-  private urlEndPoint = 'http://localhost:8080/api/species';
+  private urlEndPoint = 'http://localhost:8080/api/sexes';
 
   constructor(private http: HttpClient) {
   }
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
-  getSpecies(): Observable<Specie[]> {
+  getSexes(): Observable<Sex[]> {
     return this.http.get<any>(this.urlEndPoint);
   }
 

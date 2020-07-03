@@ -30,7 +30,8 @@ h1.example-app-name {
   flex: 1 0 auto;
 
 }
-mat-sidenav{
+
+mat-sidenav {
   width: 300px;
 }
 

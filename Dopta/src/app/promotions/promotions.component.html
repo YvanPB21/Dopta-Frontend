@@ -31,11 +31,11 @@
       matInput
       [(ngModel)]="searchToken"
       placeholder="Search"
-      autocomplete="off" >
+      autocomplete="off">
   </mat-form-field>
 </div>
 
-<div >
+<div>
   <mat-card class="example-card" *ngFor="let promotion of promotions | filterPipe: searchToken">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>

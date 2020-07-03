@@ -1,4 +1,4 @@
-<div align="center" style="background-image: url('/src/assets/fondo3.jpg')" class="background example-card2">
+<div align="center" style="background-image: url('/assets/fondo3.jpg')" class="background example-card2">
   <mat-card class="example-card">
 
     <mat-card-title class="title">
@@ -18,11 +18,12 @@
 
       <form class="example-form">
         <mat-form-field class="example-full-width">
-          <input type="text" matInput #message maxlength="16" placeholder="Ingrese el número de tarjeta"  (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
+          <input type="text" matInput #message maxlength="16" placeholder="Ingrese el número de tarjeta"
+                 (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
           <mat-hint align="end">{{message.value.length}} / 16</mat-hint>
         </mat-form-field>
       </form>
-  <div>
+      <div>
 
 
         <mat-form-field class="example-width2" style="margin-right: 2%">
@@ -30,16 +31,18 @@
         </mat-form-field>
 
         <mat-form-field class="example-width2">
-          <input type="text" matInput #message maxlength="3" placeholder="Ingrese el CVV/CVC"  (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
+          <input type="text" matInput #message maxlength="3" placeholder="Ingrese el CVV/CVC"
+                 (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
           <mat-hint align="end">{{message.value.length}} / 3</mat-hint>
         </mat-form-field>
 
-  </div>
+      </div>
 
-      <div >
+      <div>
 
         <mat-form-field class="example-width2">
-          <input type="text" matInput #message placeholder="Ingrese el monto"  (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
+          <input type="text" matInput #message placeholder="Ingrese el monto"
+                 (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
         </mat-form-field>
 
         <button mat-raised-button color="primary" style="margin-left: 30%">Donar</button>

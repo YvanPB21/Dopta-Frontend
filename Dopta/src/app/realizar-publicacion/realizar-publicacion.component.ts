@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-realizar-publicacion',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./realizar-publicacion.component.css']
 })
 export class RealizarPublicacionComponent implements OnInit {
- sexes: string[] = ['Hembra', 'Macho', 'Otro'];
+  sexes: string[] = ['Hembra', 'Macho', 'Otro'];
   sizes: string[] = ['Pequeño', 'Mediano', 'Grande'];
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,7 +1,7 @@
 <div align="center">
   <mat-card class="card">
-    <mat-card-title align="center">Firulaiz</mat-card-title>
-    <img mat-card-image src="https://www.generadormemes.com/media/templates/michi_miguel.jpg" alt="Michi kul">
+    <mat-card-title align="center">{{pet.name}}</mat-card-title>
+    <img mat-card-image [src]="pet.image_url">
     <mat-card-subtitle align="left">
       <h2>
         Publicante: Elena Nofeo
@@ -20,13 +20,13 @@
       </p>
       <div align="center">
         <div class="carac">
-          <span class="material-icons icon">straighten</span>Tamaño
+          <span class="material-icons icon">straighten</span>{{pet.size.name}}
         </div>
         <div class="carac">
-          <span class="material-icons icon">calendar_today</span>Tamaño
+          <span class="material-icons icon">calendar_today</span>{{pet.date_of_birth | date:'shortDate'}}
         </div>
         <div class="carac">
-          <span class="material-icons icon">pets</span>Tamaño
+          <span class="material-icons icon">pets</span>{{pet.species.name}}
         </div>
       </div>
     </mat-card-content>

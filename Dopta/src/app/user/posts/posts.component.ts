@@ -1,6 +1,15 @@
-import { Component, OnInit  } from '@angular/core';
-import { Post} from '../../models/post';
+import {Component, OnInit} from '@angular/core';
+import {Post} from '../../models/post';
 import {PostService} from '../../services/post.service';
+import {Specie} from '../../models/specie';
+import {SpecieService} from '../../services/specie.service';
+import {Sex} from '../../models/sex';
+import {SexService} from '../../services/sex.service';
+import {Size} from '../../models/size';
+import {SizeService} from '../../services/size.service';
+import {Pet} from '../../models/pet';
+import {PetService} from '../../services/pet.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pets',
@@ -8,17 +17,38 @@ import {PostService} from '../../services/post.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  sizes: string[] = ['Pequeño', 'Mediano', 'Grande'];
-  sexes: string[] = ['Hembra', 'Macho'];
-  species: string [] = ['Perro', 'Gato', 'Conejo'];
-  pets: Post[];
+  sizes: Size[];
+  sexes: Sex[];
+  species: Specie[];
+  pets: Pet[];
   searchToken: string;
 
-  constructor(private petService: PostService) { }
-  ngOnInit(){
-    this.petService.getClientes().subscribe(
-      pets => this.pets = pets
-    );
+  constructor(private petService: PetService, private specieService: SpecieService
+          ,   private sexService: SexService, private sizeService: SizeService, private router: Router) {
+
   }
 
-}
+  ngOnInit() {
+    this.petService.getClientes().subscribe(
+      pets => {
+        this.pets = pets;
+        console.log(pets);
+      }
+    );
+    this.specieService.getSpecies().subscribe(
+        species => this.species = species
+      );
+    console.log(this.species);
+    this.sexService.getSexes().subscribe(
+        sexes => this.sexes = sexes
+      );
+    this.sizeService.getSizes().subscribe(
+      sizes => this.sizes = sizes
+    );
+    }
+    view(id){
+    console.log(id);
+    this.router.navigate(['publication/', id]);
+    }
+  }
+

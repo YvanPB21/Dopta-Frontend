@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Pet} from '../models/pet';
@@ -6,8 +6,10 @@ import {Pet} from '../models/pet';
 @Injectable()
 export class PetService {
 
-  private urlEndPoint = 'http://localhost:8080/pets';
-  constructor(private http: HttpClient) { }
+  private urlEndPoint = 'http://localhost:8080/api/pets';
+
+  constructor(private http: HttpClient) {
+  }
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -15,16 +17,15 @@ export class PetService {
     return this.http.get<Pet[]>(this.urlEndPoint);
   }
 
-  create(pet: Pet): Observable<Pet>{
+  create(pet: Pet): Observable<Pet> {
     return this.http.post<Pet>(this.urlEndPoint, pet, {headers: this.httpHeaders});
   }
 
-  getPet(id): Observable<Pet>{
+  getPet(id): Observable<Pet> {
     return this.http.get<Pet>(`${this.urlEndPoint}/${id}`);
   }
 
-  update(pet: Pet): Observable<Pet>{
+  update(pet: Pet): Observable<Pet> {
     return this.http.put<Pet>(`${this.urlEndPoint}/${pet.id}`, pet, {headers: this.httpHeaders});
   }
-
 }

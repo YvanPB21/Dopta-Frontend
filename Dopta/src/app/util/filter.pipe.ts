@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'filterPipe'
@@ -12,6 +12,6 @@ export class FilterPipe implements PipeTransform {
       searchToken = '';
     }
     searchToken = searchToken.toLowerCase();
-    return items.filter(elem => elem.name.toLowerCase().indexOf(searchToken) > -1);
+    return items?.filter(elem => elem.name.toLowerCase().indexOf(searchToken) > -1);
   }
 }

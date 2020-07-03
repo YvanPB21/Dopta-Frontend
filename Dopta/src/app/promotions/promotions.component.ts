@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Post} from '../models/post';
 import {PromotionService} from '../services/promotion.service';
 import {Promotion} from '../models/promotion';
@@ -14,9 +14,11 @@ export class PromotionsComponent implements OnInit {
   species: string [] = ['Perro', 'Gato', 'Conejo'];
   promotions: Promotion[];
   searchToken: string;
-  constructor(private promotionService: PromotionService) { }
 
-  ngOnInit(){
+  constructor(private promotionService: PromotionService) {
+  }
+
+  ngOnInit() {
     this.promotionService.getPromotions().subscribe(
       promotions => this.promotions = promotions
     );

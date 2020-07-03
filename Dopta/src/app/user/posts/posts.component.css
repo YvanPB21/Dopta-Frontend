@@ -2,15 +2,18 @@
   max-width: 300px;
   margin: 10px 30px 10px;
   display: inline-block;
+  min-height: 500px;
+
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
 .filters {
-    text-align: center;
+  text-align: center;
 }
+
 .filter {
   margin-left: 50px;
   margin-top: 10px;

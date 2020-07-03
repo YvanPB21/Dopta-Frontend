@@ -3,17 +3,21 @@
   margin: 20px;
   display: inline-block;
 }
-.stars{
+
+.stars {
   text-align: center;
 }
-.btn{
+
+.btn {
   margin: 10px;
 }
+
 .minicard {
   max-width: 100px;
   margin: 10px;
   display: inline-block;
 }
+
 .cardPublication {
   vertical-align: top;
   max-width: 400px;

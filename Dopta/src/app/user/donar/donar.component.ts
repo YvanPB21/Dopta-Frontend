@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-donar',
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class DonarComponent implements OnInit {
   pick: string;
   paymentMethods: string[] = ['Visa', 'MasterCard', 'Banco Del Crédito del Perú', 'Scotiabank', 'Interbank', 'BBVA Continental'];
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

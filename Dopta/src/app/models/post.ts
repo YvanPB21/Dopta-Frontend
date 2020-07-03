@@ -1,9 +1,11 @@
+import {Pet} from './pet';
+
 export class Post {
-  id: number;
-  pet: string;
-  poster: string;
-  datePublished: Date;
+  // tslint:disable-next-line:variable-name
+  date_adopted: Date;
+  // tslint:disable-next-line:variable-name
+  date_published: Date;
   description: string;
-  dateAdopted: Date;
-  adopter: string;
+  id: number;
+  pet: Pet;
 }

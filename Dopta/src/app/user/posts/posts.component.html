@@ -4,7 +4,7 @@
       <mat-label>Tamaño</mat-label>
       <mat-select>
         <mat-option>Ninguno</mat-option>
-        <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
+        <mat-option *ngFor="let size of sizes" [value]="size">{{size.name}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -13,7 +13,7 @@
       <mat-label>Sexo</mat-label>
       <mat-select>
         <mat-option>Ninguno</mat-option>
-        <mat-option *ngFor="let sex of sexes" [value]="sex">{{sex}}</mat-option>
+        <mat-option *ngFor="let sex of sexes" [value]="sex">{{sex.name}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -22,7 +22,7 @@
       <mat-label>Especie</mat-label>
       <mat-select>
         <mat-option>Ninguna</mat-option>
-        <mat-option *ngFor="let specie of species" [value]="specie">{{specie}}</mat-option>
+        <mat-option *ngFor="let specie of species" [value]="specie" >{{specie.name}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -31,20 +31,20 @@
       matInput
       [(ngModel)]="searchToken"
       placeholder="Search"
-      autocomplete="off" >
+      autocomplete="off">
   </mat-form-field>
 </div>
-
-<div >
-  <mat-card class="example-card" *ngFor="let pet of pets | filterPipe: searchToken">
+<div align="center">
+  <mat-card class="example-card" *ngFor="let pet of pets | filterPipe:searchToken" (click)="view(pet.id)" style="cursor: pointer">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{pet.name}}</mat-card-title>
-      <mat-card-subtitle>{{pet.species}} {{pet.size}} {{pet.sex}}</mat-card-subtitle>
-  </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-subtitle>{{pet.sex_id}}</mat-card-subtitle>
+    </mat-card-header>
     <mat-card-content>
-      <p>{{pet.description}}</p>
+        <img mat-card-image [src]="pet.image_url" style="height: 20%">
+      <p>{{pet.species.name}}</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula porttitor ultrices. Morbi dapibus lorem sed ligula varius, iaculis cursus massa pellentesque. Integer vestibulum auctor sem non molestie. </p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE ❤</button>

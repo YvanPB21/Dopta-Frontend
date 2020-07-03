@@ -1,6 +1,8 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <h1 class="example-app-name">Dopta</h1>
     <span class="material-icons" routerLink="/userprofile" style="cursor: pointer;">account_circle</span>
   </mat-toolbar>
@@ -18,10 +20,9 @@
         <a mat-list-item class="nav-link" routerLink="/promotions">Promociones</a>
         <a mat-list-item class="nav-link" routerLink="/donar">Donar</a>
         <a mat-list-item class="nav-link" routerLink="/quienes-somos">¿Quiénes somos?</a>
-        <a mat-list-item class="nav-link" routerLink="/publicacion">Publicaion prueba</a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content >
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
