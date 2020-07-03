@@ -1,9 +1,8 @@
 <div align="center">
   <mat-card class="cardProfile">
     <img mat-card-image
-         src="https://vignette.wikia.nocookie.net/sherlockholmes/images/b/bf/PortalHudson.jpg/revision/latest/scale-to-width-down/310?cb=20120213090503&path-prefix=es"
-         alt="Photo of a Shiba Inu">
-    <mat-card-title align="center">Elena Nofeo</mat-card-title>
+         [src]="user.profile_pic_url">
+    <mat-card-title align="center">{{user.names}} {{user.last_names}}</mat-card-title>
     <div class="stars"><span class="material-icons">star_rate star_rate star_rate star_rate star_rate</span></div>
     <mat-card-content>
       <div align="center">
@@ -27,30 +26,9 @@
     </mat-card-content>
   </mat-card>
   <mat-card class="cardPublication">
-    <mat-card class="minicard">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-title align="center">Firulais1</mat-card-title>
-    </mat-card>
-    <mat-card class="minicard">
-      <img mat-card-image src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/83D7/production/_111515733_gettyimages-1208779325.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-title align="center">Pacho</mat-card-title>
-    </mat-card>
-    <mat-card class="minicard">
-      <img mat-card-image src="https://api.time.com/wp-content/uploads/2019/12/CatFilterReaction.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-title align="center">Felipe</mat-card-title>
-    </mat-card>
-    <mat-card class="minicard">
-      <img mat-card-image src="https://ca-times.brightspotcdn.com/dims4/default/33c083b/2147483647/strip/true/crop/1611x906+0+0/resize/840x472!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ffd%2Fef%2F05c1aab3e76c3d902aa0548c0046%2Fla-la-hm-pet-issue-18-jpg-20150615
-" alt="Photo of a Shiba Inu">
-      <mat-card-title align="center">Navy</mat-card-title>
-    </mat-card>
-    <mat-card class="minicard">
-      <img mat-card-image src="https://www.hemingwayhome.com/images/made/8bbcf7df823a6485/cat-pic-Ivan_680_454.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-title align="center">Magnus</mat-card-title>
-    </mat-card>
-    <mat-card class="minicard">
-      <img mat-card-image src="https://api.time.com/wp-content/uploads/2019/11/narwhal-dog-tail-2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-title align="center">Asust</mat-card-title>
+    <mat-card class="minicard" *ngFor="let userpost of userposts" (click)="goToPost(userpost.id)" style="cursor: pointer">
+      <mat-card-title align="center">{{userpost.pet.name}}</mat-card-title>
+      <img mat-card-image [src]="userpost.pet.image_url" >
     </mat-card>
   </mat-card>
 

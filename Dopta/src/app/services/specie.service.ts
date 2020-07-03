@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Specie} from '../models/specie';
-import {PageSpecie} from '../models/pageSpecie';
 
 @Injectable({
   providedIn: 'root'

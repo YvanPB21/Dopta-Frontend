@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable()
 export class PostService {
 
-  private urlEndPoint = 'http://localhost:8080/api/adoption';
+  private urlEndPoint = 'http://localhost:8080/api/adoptions';
 
   constructor(private http: HttpClient) {
   }
@@ -16,7 +16,9 @@ export class PostService {
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.urlEndPoint);
   }
-
+  getPostsByUserId(id): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.urlEndPoint}/${id}/posters`);
+  }
   create(pet: Post): Observable<Post> {
     return this.http.post<Post>(this.urlEndPoint, pet, {headers: this.httpHeaders});
   }

@@ -1,11 +1,14 @@
 import {Pet} from './pet';
+import {User} from './user';
+
 
 export class Post {
-  // tslint:disable-next-line:variable-name
-  date_adopted: Date;
+  id: number;
   // tslint:disable-next-line:variable-name
   date_published: Date;
   description: string;
-  id: number;
+  // tslint:disable-next-line:variable-name
+  date_adopted: Date;
   pet: Pet;
+  poster: User;
 }

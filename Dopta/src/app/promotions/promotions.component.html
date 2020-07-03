@@ -1,13 +1,3 @@
-<div class="filters">
-  <mat-form-field style="width: 10%" floatLabel='never' class="filter">
-    <input
-      matInput
-      [(ngModel)]="searchToken"
-      placeholder="Search"
-      autocomplete="off">
-  </mat-form-field>
-</div>
-
 <div>
   <mat-card class="example-card" *ngFor="let promotion of promotions | filterPipe:searchToken" (click)="view(promotion.id)" style="cursor: pointer">
     <mat-card-header>

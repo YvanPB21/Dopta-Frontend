@@ -12,6 +12,6 @@ export class FilterPipe implements PipeTransform {
       searchToken = '';
     }
     searchToken = searchToken.toLowerCase();
-    return items?.filter(elem => elem.name.toLowerCase().indexOf(searchToken) > -1);
+    return items?.filter(elem => elem.pet.name.toLowerCase().indexOf(searchToken) > -1);
   }
 }
