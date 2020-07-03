@@ -35,10 +35,13 @@ import {SpecieService} from './services/specie.service';
 import {PromotionService} from './services/promotion.service';
 
 import {SexService} from './services/sex.service';
+import {CommentService} from './services/comment.service';
+import {UserService} from './services/user.service';
+import { AdopcionesComponent } from './user/adopciones/adopciones.component';
 
 const routes: Routes = [
   {path: 'posts', component: PostsComponent},
-  {path: 'userprofile', component: UserprofileComponent},
+  {path: 'userprofile/:id', component: UserprofileComponent},
   {path: 'publication/:id', component: PublicationComponent},
   {path: 'donar', component: DonarComponent},
   {path: 'quienes-somos', component: QuienesSomosComponent},
@@ -57,7 +60,8 @@ const routes: Routes = [
     PublicationComponent,
     DonarComponent,
     RealizarPublicacionComponent,
-    PromotionsComponent
+    PromotionsComponent,
+    AdopcionesComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers: [PostService, PetService, SpecieService, PromotionService, SexService],
+  providers: [PostService, PetService, SpecieService, PromotionService, SexService, CommentService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

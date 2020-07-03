@@ -19,3 +19,12 @@
   margin: 0.005% 5% 0.005%;
   display: inline-block;
 }
+.com {
+  max-width: 300px;
+  margin: 10px;
+}
+.containercomm {
+  max-width: 500px;
+  margin: 20px;
+  max-height: 700px;
+}

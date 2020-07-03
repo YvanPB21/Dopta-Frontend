@@ -20,19 +20,19 @@ export class PostsComponent implements OnInit {
   sizes: Size[];
   sexes: Sex[];
   species: Specie[];
-  pets: Pet[];
+  posts: Post[];
   searchToken: string;
 
   constructor(private petService: PetService, private specieService: SpecieService
-          ,   private sexService: SexService, private sizeService: SizeService, private router: Router) {
+          ,   private sexService: SexService, private sizeService: SizeService, private postService: PostService, private router: Router) {
 
   }
 
   ngOnInit() {
-    this.petService.getClientes().subscribe(
-      pets => {
-        this.pets = pets;
-        console.log(pets);
+    this.postService.getPosts().subscribe(
+      posts => {
+        this.posts = posts;
+        console.log(posts);
       }
     );
     this.specieService.getSpecies().subscribe(
