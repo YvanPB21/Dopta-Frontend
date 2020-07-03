@@ -5,8 +5,6 @@
     </button>
     <h1 class="example-app-name" routerLink="/posts" style="cursor: pointer;">Dopta</h1>
     <span class="material-icons" routerLink="/userprofile" style="cursor: pointer;" (click)="goToProfile(4)">account_circle</span>
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <button mat-button style="cursor: pointer;" *ngIf="isLogged" (click)="onLogOut()">LogOut</button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
