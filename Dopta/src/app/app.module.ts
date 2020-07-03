@@ -33,7 +33,7 @@ import {PromotionsComponent} from './promotions/promotions.component';
 import {PetService} from './services/pet.service';
 import {SpecieService} from './services/specie.service';
 import {PromotionService} from './services/promotion.service';
-import {NgxPaginationModule} from 'ngx-pagination';
+
 import {SexService} from './services/sex.service';
 
 const routes: Routes = [
@@ -81,7 +81,6 @@ const routes: Routes = [
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgxPaginationModule
   ],
   providers: [PostService, PetService, SpecieService, PromotionService, SexService],
   bootstrap: [AppComponent]
