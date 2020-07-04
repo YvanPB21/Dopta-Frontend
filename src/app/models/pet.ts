@@ -13,4 +13,10 @@ export class Pet {
   species: Specie;
   size: Size;
   sex: Sex;
+
+  constructor(name: string, date_of_birth: Date, image_url: string) {
+    this.name = name;
+    this.date_of_birth = date_of_birth;
+    this.image_url = image_url;
+  }
 }
