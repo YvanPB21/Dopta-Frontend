@@ -14,9 +14,13 @@ export class Pet {
   size: Size;
   sex: Sex;
 
-  constructor(name: string, date_of_birth: Date, image_url: string) {
+  // tslint:disable-next-line:variable-name
+  constructor( name: string, date_of_birth: Date, image_url: string, species: Specie, size: Size, sex: Sex) {
     this.name = name;
     this.date_of_birth = date_of_birth;
     this.image_url = image_url;
+    this.species = species;
+    this.size = size;
+    this.sex = sex;
   }
 }

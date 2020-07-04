@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Sex} from '../models/sex';
+import {Pet} from '../models/pet';
 
 
 @Injectable({
@@ -19,5 +20,7 @@ export class SexService {
   getSexes(): Observable<Sex[]> {
     return this.http.get<any>(this.urlEndPoint);
   }
-
+  getSex(id): Observable<Sex> {
+    return this.http.get<any>(`${this.urlEndPoint}/${id}`);
+  }
 }
