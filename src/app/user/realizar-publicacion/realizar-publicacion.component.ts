@@ -11,6 +11,10 @@ import {Post} from '../../models/post';
 import {PetService} from '../../services/pet.service';
 import {MatSelectChange} from '@angular/material/select';
 import {eventTargetLegacyPatch} from 'zone.js/lib/browser/event-target-legacy';
+import {UserService} from '../../services/user.service';
+import {TokenService} from '../../services/token.service';
+import {User} from '../../models/user';
+import {PostService} from '../../services/post.service';
 
 @Component({
   selector: 'app-realizar-publicacion',
@@ -28,14 +32,19 @@ export class RealizarPublicacionComponent implements OnInit {
   specie: Specie;
   sex: Sex;
   size: Size;
+  poster: User;
   name: string;
   // tslint:disable-next-line:variable-name
   date_of_birth: Date;
   // tslint:disable-next-line:variable-name
   image_url: string;
   post: Post;
+  description: string;
   // tslint:disable-next-line:max-line-length
-  constructor(private formBuilder: FormBuilder, private specieService: SpecieService, private sexService: SexService, private sizeService: SizeService, private petService: PetService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private specieService: SpecieService
+              // tslint:disable-next-line:align
+              , private sexService: SexService, private sizeService: SizeService, private petService: PetService,
+              private tokenService: TokenService, private postService: PostService) {
      this.buildForm();
   }
 
@@ -51,6 +60,9 @@ export class RealizarPublicacionComponent implements OnInit {
       sizes => {
         this.sizes = sizes;
       }
+    );
+    this.userService.getUser(this.tokenService.getUserId()).subscribe(
+      poster => this.poster = poster
     );
   }
   specieSelected(event: MatSelectChange) {
@@ -82,11 +94,19 @@ export class RealizarPublicacionComponent implements OnInit {
     pet = new Pet(this.name, this.date_of_birth, this.image_url, this.specie, this.size, this.sex);
     this.petService.create(pet).subscribe();
     console.log(pet);
+    const f =  new Date();
+    f.getDate();
+    let post: Post;
+    post = new Post(f, this.description, null, pet, this.poster);
+    console.log(this.poster);
+    this.postService.create(post).subscribe();
+    console.log(post);
   }
   private buildForm() {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       date_of_birth: ['', [Validators.required]],
+      description: ['']
     });
   }
 

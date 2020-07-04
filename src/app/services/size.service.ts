@@ -10,7 +10,7 @@ import {Sex} from '../models/sex';
 })
 export class SizeService {
 
-  private urlEndPoint = 'http://localhost:8080/api/sizes';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/sizes';
 
   constructor(private http: HttpClient) {
   }

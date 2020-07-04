@@ -6,7 +6,7 @@ import {Pet} from '../models/pet';
 @Injectable()
 export class PetService {
 
-  private urlEndPoint = 'http://localhost:8080/api/pets';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/pets';
 
   constructor(private http: HttpClient) {
   }

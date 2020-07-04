@@ -10,7 +10,7 @@ import {Pet} from '../models/pet';
 })
 export class SexService {
 
-  private urlEndPoint = 'http://localhost:8080/api/sexes';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/sexes';
 
   constructor(private http: HttpClient) {
   }

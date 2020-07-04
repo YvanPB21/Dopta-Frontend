@@ -6,7 +6,7 @@ import {Corporation} from '../models/corporation';
 @Injectable()
 export class CorporationService {
 
-  private urlEndPoint = 'http://localhost:8080/api/corporations';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/corporations';
 
   constructor(private http: HttpClient) {
   }

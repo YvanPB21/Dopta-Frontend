@@ -85,7 +85,7 @@
             <mat-label>Descripción</mat-label>
             <textarea matInput cdkTextareaAutosize
                       cdkAutosizeMinRows="1"
-                      placeholder="Haga una descripción de su mascota..."></textarea>
+                      placeholder="Haga una descripción de su mascota..." formControlName="description" [(ngModel)]="description"></textarea>
           </mat-form-field>
         </div>
         <div class="publicar-button-div">

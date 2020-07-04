@@ -7,7 +7,7 @@ import {User} from '../models/user';
 @Injectable()
 export class UserService {
 
-  private urlEndPoint = 'http://localhost:8080/api/users';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/users';
 
   constructor(private http: HttpClient) {
   }
