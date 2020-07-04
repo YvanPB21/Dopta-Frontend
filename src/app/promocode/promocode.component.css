@@ -1,0 +1,19 @@
+.card{
+  max-width: 300px;
+  margin: 10px 30px 10px;
+}
+
+.background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  height: 100%;
+}
+.div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
