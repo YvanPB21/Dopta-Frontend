@@ -36,7 +36,7 @@
   </mat-form-field>
 </div>
 <div class="div">
-  <mat-card class="example-card" *ngFor="let post of posts | filterPipe:searchToken"
+  <mat-card class="example-card" *ngFor="let post of posts"
             style="cursor: pointer">
     <div (click)="view(post.id)">
       <mat-card-header>
