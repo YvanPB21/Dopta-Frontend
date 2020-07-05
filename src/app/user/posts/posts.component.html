@@ -40,7 +40,7 @@
             style="cursor: pointer">
     <div (click)="view(post.id)">
       <mat-card-header>
-        <mat-card-title>{{post.pet.name}}</mat-card-title>
+        <mat-card-title>{{post?.pet.name}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <img mat-card-image [src]="post.pet.image_url" class="image">

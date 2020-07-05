@@ -102,10 +102,7 @@ export class RealizarPublicacionComponent implements OnInit {
     post = new Post(f, this.description, null, this.pet2, this.poster);
     console.log(this.poster);
     console.log(this.pet.id);
-    console.log(post);
-    if (post != null) {
     this.postService.create(post).subscribe();
-    }
     console.log(post);
   }
   createPet() {
