@@ -2,14 +2,14 @@
 <div class="div">
   <mat-card class="example-card" *ngFor="let userpost of userposts"
             style="cursor: pointer">
-    <div (click)="view(userpost.id)">
+    <div (click)="view(userpost?.id)">
       <mat-card-header>
-        <mat-card-title>{{userpost.pet.name}}</mat-card-title>
+        <mat-card-title>{{userpost?.pet.name}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <img mat-card-image [src]="userpost.pet.image_url" class="image">
-        <p>{{userpost.pet.species.name}}</p>
-        <p>{{userpost.description}}</p>
+        <img mat-card-image [src]="userpost?.pet.image_url" class="image">
+        <p>{{userpost?.pet.species.name}}</p>
+        <p>{{userpost?.description}}</p>
       </mat-card-content>
     </div>
   </mat-card>
