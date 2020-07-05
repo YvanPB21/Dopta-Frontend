@@ -37,6 +37,7 @@ import { PostDetailComponent } from './views/post-detail/post-detail.component';
 import { PromotionDetailComponent } from './views/promotion-detail/promotion-detail.component';
 import { CommentDialogComponent } from './components/comment-dialog/comment-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FiltersComponent } from './components/filters/filters.component';
 
 
 
@@ -58,7 +59,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     PromotionComponent,
     PostDetailComponent,
     PromotionDetailComponent,
-    CommentDialogComponent
+    CommentDialogComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
