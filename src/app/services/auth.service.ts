@@ -1,24 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { NuevoUsuario } from '../models/nuevo-usuario';
-import { Observable } from 'rxjs';
-import { LoginUsuario } from '../models/login-usuario';
-import { JwtDTO } from '../models/jwt-dto';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  authURL = 'https://doptapp.herokuapp.com/auth/';
-
+  baseUrl = environment.apiUrl + '/auth';
+  jwtHelper = new JwtHelperService();
+  decodedToken: any;
   constructor(private httpClient: HttpClient) { }
 
-  public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario);
+  login(model: any): any {
+    return this.httpClient.post(`${this.baseUrl}/login`, model).pipe(
+      map((response: any) => {
+        if (response) {
+          const token = response.token;
+          localStorage.setItem('token', token);
+          this.decodedToken = this.jwtHelper.decodeToken(token);
+          console.log(this.decodedToken);
+        }
+      })
+    );
   }
-
-  public login(loginUsuario: LoginUsuario): Observable<JwtDTO> {
-    return this.httpClient.post<JwtDTO>(this.authURL + 'login', loginUsuario);
+  loggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+  register(model: any): any {
+    return this.httpClient.post(`${this.baseUrl}/nuevo`, model);
   }
 }

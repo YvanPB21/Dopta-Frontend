@@ -1,25 +1,17 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Specie} from '../models/specie';
-import {Sex} from '../models/sex';
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpecieService {
-
-  private urlEndPoint = 'https://doptapp.herokuapp.com/api/species';
-
-  constructor(private http: HttpClient) {
+  baseUrl = environment.apiUrl + '/api/species';
+  constructor(private httpClient: HttpClient) { }
+  getSpecies(): any {
+    return this.httpClient.get(this.baseUrl);
   }
-
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
-  getSpecies(): Observable<Specie[]> {
-    return this.http.get<any>(this.urlEndPoint);
-  }
-  getSpecie(id): Observable<Specie> {
-    return this.http.get<any>(`${this.urlEndPoint}/${id}`);
+  getSpecie(id): any{
+    return this.httpClient.get(`${this.baseUrl}/${id}`);
   }
 }

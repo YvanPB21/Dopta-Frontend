@@ -1,102 +1,88 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {OwlModule} from 'ngx-owl-carousel';
-import {AppComponent} from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {PostsComponent} from './user/posts/posts.component';
-import {RouterModule, Routes} from '@angular/router';
-import {PostService} from './services/post.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MainNavComponent} from './main-nav/main-nav.component';
-
-import {LayoutModule} from '@angular/cdk/layout';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import {RouterModule} from '@angular/router';
+import {routes} from './routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './views/login/login.component';
+import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {RealizarPublicacionComponent} from './user/realizar-publicacion/realizar-publicacion.component';
-import {DonarComponent} from './user/donar/donar.component';
-import {MatRadioModule} from '@angular/material/radio';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FilterPipe} from './util/filter.pipe';
-import {QuienesSomosComponent} from './quienes-somos/quienes-somos.component';
-import {UserprofileComponent} from './user/userprofile/userprofile.component';
-import {PublicationComponent} from './user/publication/publication.component';
-import {PromotionsComponent} from './promotions/promotions.component';
-import {PetService} from './services/pet.service';
-import {SpecieService} from './services/specie.service';
-import {PromotionService} from './services/promotion.service';
-import {PromocodeComponent} from './promocode/promocode.component';
+import {MatInputModule} from '@angular/material/input';
+import { PostComponent } from './components/post/post.component';
+import {PostsComponent} from './components/posts/posts.component';
+import { PostViewComponent } from './views/post-view/post-view.component';
+import {PostsService} from './services/posts.service';
+import { ProfileComponent } from './views/profile/profile.component';
 
-import {SexService} from './services/sex.service';
-import {CommentService} from './services/comment.service';
-import {UserService} from './services/user.service';
-import {LikeService} from './services/like.service';
-import { MypublicationsComponent } from './user/mypublications/mypublications.component';
-import { LoginComponent } from './auth/login/login.component';
-import { ProdGuardService as guard } from './guards/prod-guard.service';
+import { PublicationFormComponent } from './components/publication-form/publication-form.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { CreatePostComponent } from './views/create-post/create-post.component';
+import { MyPostsComponent } from './views/my-posts/my-posts.component';
+import { DonateComponent } from './views/donate/donate.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { AboutUsComponent } from './views/about-us/about-us.component';
+import { PromotionsViewComponent } from './views/promotions-view/promotions-view.component';
+import { PromotionComponent } from './components/promotion/promotion.component';
+import { PostDetailComponent } from './views/post-detail/post-detail.component';
+import { PromotionDetailComponent } from './views/promotion-detail/promotion-detail.component';
+import { CommentDialogComponent } from './components/comment-dialog/comment-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
-const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'posts' , component: PostsComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'userprofile/:id', component: UserprofileComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'publication/:id', component: PublicationComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'donar', component: DonarComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'quienes-somos', component: QuienesSomosComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'publicar', component: RealizarPublicacionComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'promotions', component: PromotionsComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'promocode/:id', component: PromocodeComponent, canActivate: [guard], data: { expectedRol: ['user'] }},
-  {path: 'mypublications', component: MypublicationsComponent, canActivate: [guard], data: { expectedRol: ['user'] }}
-];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent,
     MainNavComponent,
-    FilterPipe,
-    QuienesSomosComponent,
-    UserprofileComponent,
-    PublicationComponent,
-    DonarComponent,
-    RealizarPublicacionComponent,
-    PromotionsComponent,
-    PromocodeComponent,
-    MypublicationsComponent,
-    LoginComponent
+    LoginComponent,
+    PostsComponent,
+    PostComponent,
+    PostViewComponent,
+    ProfileComponent,
+    PublicationFormComponent,
+    CreatePostComponent,
+    MyPostsComponent,
+    DonateComponent,
+    AboutUsComponent,
+    PromotionsViewComponent,
+    PromotionComponent,
+    PostDetailComponent,
+    PromotionDetailComponent,
+    CommentDialogComponent
   ],
   imports: [
     BrowserModule,
-    OwlModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    LayoutModule,
     MatToolbarModule,
-    MatSidenavModule,
     MatIconModule,
+    MatSidenavModule,
     MatListModule,
+    MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
-    MatSelectModule,
+    ReactiveFormsModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatNativeDateModule,
     FormsModule,
     MatRadioModule,
-    ReactiveFormsModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
+    MatDialogModule,
   ],
-  providers: [PostService, PetService, SpecieService, PromotionService, SexService, CommentService, UserService, LikeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

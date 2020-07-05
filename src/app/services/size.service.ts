@@ -1,27 +1,18 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Size} from '../models/size';
-import {Sex} from '../models/sex';
-
+import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SizeService {
 
-  private urlEndPoint = 'https://doptapp.herokuapp.com/api/sizes';
-
-  constructor(private http: HttpClient) {
+  baseUrl = environment.apiUrl + '/api/sizes';
+  constructor(private httpClient: HttpClient) { }
+  getSizes(): any {
+    return this.httpClient.get(this.baseUrl);
   }
-
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
-  getSizes(): Observable<Size[]> {
-    return this.http.get<any>(this.urlEndPoint);
-  }
-
-  getSize(id): Observable<Size> {
-    return this.http.get<any>(`${this.urlEndPoint}/${id}`);
+  getSize(id): any{
+    return this.httpClient.get(`${this.baseUrl}/${id}`);
   }
 }

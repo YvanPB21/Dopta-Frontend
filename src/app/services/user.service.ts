@@ -1,34 +1,15 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {User} from '../models/user';
+import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
 
-  private urlEndPoint = 'https://doptapp.herokuapp.com/api/users';
-
-  constructor(private http: HttpClient) {
+  baseUrl = environment.apiUrl + '/api/users';
+  constructor(private httpClient: HttpClient) { }
+  getUser(id): any{
+    return this.httpClient.get(`${this.baseUrl}/${id}`);
   }
-
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.urlEndPoint);
-  }
-
-  create(pet: User): Observable<User> {
-    return this.http.post<User>(this.urlEndPoint, pet, {headers: this.httpHeaders});
-  }
-
-  getUser(id): Observable<User> {
-    return this.http.get<User>(`${this.urlEndPoint}/${id}`);
-  }
-
-  update(pet: User): Observable<User> {
-    return this.http.put<User>(`${this.urlEndPoint}/${pet.id}`, pet, {headers: this.httpHeaders});
-
-  }
-
 }

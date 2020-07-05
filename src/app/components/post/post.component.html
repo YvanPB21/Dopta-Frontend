@@ -1,0 +1,17 @@
+<mat-card class="example-card"
+          style="cursor: pointer">
+  <div (click)="view(postData.id)">
+    <mat-card-header>
+      <mat-card-title>{{postData.pet.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image [src]="postData.pet.image_url" class="image">
+      <p>{{postData.pet.species.name}}</p>
+      <p>{{postData.description}}</p>
+    </mat-card-content>
+  </div>
+  <mat-card-actions>
+    <button mat-button>LIKE ❤</button>
+    <button mat-button>ADOPT 🏘</button>
+  </mat-card-actions>
+</mat-card>

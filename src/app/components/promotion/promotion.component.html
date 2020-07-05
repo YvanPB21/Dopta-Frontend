@@ -1,0 +1,10 @@
+<mat-card class="example-card"  (click)="view(promotion.id)" style="cursor: pointer">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{promotion.corporation.corporationName}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="promotion.imageUrl" class="image">
+  <mat-card-content>
+    <p>{{promotion.description}}</p>
+  </mat-card-content>
+</mat-card>

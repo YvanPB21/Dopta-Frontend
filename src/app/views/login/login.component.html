@@ -1,0 +1,34 @@
+<div style="background-image: url('/assets/fondo3.jpg')" class="background example-card2 div">
+  <form [formGroup]="form" (ngSubmit)="onLogin()">
+    <div align="center">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title style="color: deepskyblue"><h1>Login</h1></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-xs">
+              <mat-form-field>
+                <input placeholder="user" formControlName="nombreUsuario" matInput type="nombreUsuario"
+                       [(ngModel)]="nombreUsuario">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs">
+              <mat-form-field>
+                <input placeholder="password" formControlName="password" matInput type="password"
+                       [(ngModel)]="password">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </form>
+</div>
+

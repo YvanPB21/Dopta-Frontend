@@ -1,0 +1,97 @@
+.card {
+  text-align: center;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.card-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header {
+  justify-content: center;
+}
+
+.adoption-img {
+  height: 50%;
+  width: 50%;
+  min-width: 100px;
+  min-height: 100px;
+  padding-top: 10%;
+  align-self: center;
+}
+
+.img-div {
+}
+
+.button-div {
+  position: relative;
+}
+
+.mat-raised-button {
+  height: 40px;
+  width: 120px;
+  border: 1px solid grey !important;
+}
+
+.name-species-div {
+  padding-top: 10px;
+}
+
+.selectable-field {
+  padding: 15px;
+
+}
+
+.address-field {
+  width: 58%;
+}
+
+.map-icon {
+  padding: 10px;
+}
+.example-card2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.direccion-div {
+
+  color: #38B6FF !important;
+}
+
+.example-full-width {
+  padding: 15px 5px 5px;
+}
+
+.descrption-field {
+  height: 40%;
+  width: 80%;
+  padding: 20px;
+}
+
+.publicar-button {
+  margin-left: 10%;
+  width: 20%;
+  font-size: 90%;
+  padding-left: 10px !important;
+}
+
+.cancelar-button {
+  margin-right: 10%;
+  width: 20%;
+  font-size: 90%;
+  padding-left: 5px !important;
+}
+
+.background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  height: auto;
+}

@@ -1,30 +1,19 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Promotion} from '../models/promotion';
+import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PromotionService {
-  private urlEndPoint = 'https://doptapp.herokuapp.com/api/promos';
 
+  baseUrl = environment.apiUrl + '/api/promos';
   constructor(private http: HttpClient) {
   }
-
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
-  getPromotions(): Observable<Promotion[]> {
-    return this.http.get<Promotion[]>(this.urlEndPoint);
+  getPromotions(): any {
+    return this.http.get(this.baseUrl);
   }
-
-  create(promotion: Promotion): Observable<Promotion> {
-    return this.http.post<Promotion>(this.urlEndPoint, promotion, {headers: this.httpHeaders});
-  }
-
-  getPromotionId(id): Observable<Promotion> {
-    return this.http.get<Promotion>(`${this.urlEndPoint}/${id}`);
-  }
-
-  update(promotion: Promotion): Observable<Promotion> {
-    return this.http.put<Promotion>(`${this.urlEndPoint}/${promotion.id}`, promotion, {headers: this.httpHeaders});
+  getPromotionById(id): any{
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 }

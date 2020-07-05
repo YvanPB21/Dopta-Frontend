@@ -22,7 +22,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirect"
+              "src/_redirects"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -92,17 +92,9 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
-              "./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/popper.js/dist/umd/popper.min.js",
-              ".node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/owl.carousel/dist/owl.carousel.min.js"
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -135,6 +127,6 @@
   },
   "defaultProject": "Dopta",
   "cli": {
-    "analytics": "08981774-af31-4447-b88e-b79d2e7086fe"
+    "analytics": "9ea6f7ab-f378-4997-9bc0-79b398fd6ce9"
   }
 }
