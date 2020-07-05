@@ -1,4 +1,4 @@
-<div align="center" style="background-image: url('/src/assets/fondo3.jpg')"
+<div align="center"  style="background-image: url('/assets/fondo3.jpg')"
      class="background">
   <form [formGroup]="form" (ngSubmit)="create()">
     <div class="card-div">
@@ -26,7 +26,7 @@
           </mat-form-field>
           <mat-form-field appearance="fill" class="selectable-field">
             <mat-label>Especie</mat-label>
-            <mat-select>
+            <mat-select (selectionChange)="specieSelected($event)">
               <mat-option *ngFor="let specie of species" [value]="specie">{{specie.name}}</mat-option>
             </mat-select>
             <mat-hint align="end">Elija entre las especies</mat-hint>
@@ -41,7 +41,7 @@
           </mat-form-field>
           <mat-form-field appearance="fill" class="selectable-field">
             <mat-label>Sexo</mat-label>
-            <mat-select>
+            <mat-select (selectionChange)="sexSelected($event)">
               <mat-option *ngFor="let sex of sexes" [value]="sex">{{sex.name}}</mat-option>
             </mat-select>
             <mat-hint align="end">Elija entre las opciones</mat-hint>
@@ -50,7 +50,7 @@
         <div>
           <mat-form-field appearance="fill" class="selectable-field">
             <mat-label>Tamaño</mat-label>
-            <mat-select>
+            <mat-select (selectionChange)="sizeSelected($event)">
               <mat-option *ngFor="let size of sizes" [value]="size">{{size.name}}</mat-option>
             </mat-select>
             <mat-hint align="end">Elija un tamaño</mat-hint>
@@ -85,13 +85,14 @@
             <mat-label>Descripción</mat-label>
             <textarea matInput cdkTextareaAutosize
                       cdkAutosizeMinRows="1"
-                      placeholder="Haga una descripción de su mascota..."></textarea>
+                      placeholder="Haga una descripción de su mascota..." formControlName="description" [(ngModel)]="description"></textarea>
           </mat-form-field>
         </div>
         <div class="publicar-button-div">
           <button class="cancelar-button" mat-raised-button color="secondary">Cancelar</button>
           <button class="publicar-button" mat-raised-button color="primary" type="submit">Publicar</button>
         </div>
+        <button class="publicar-button" mat-raised-button (click)="prueba()">Prueba</button>
       </mat-card>
     </div>
   </form>

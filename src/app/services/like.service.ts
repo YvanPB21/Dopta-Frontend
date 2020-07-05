@@ -8,7 +8,7 @@ import {Like} from '../models/like';
 })
 export class LikeService {
 
-  private urlEndPoint = 'http://localhost:8080/api/posts';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/posts';
 
   constructor(private http: HttpClient) {
   }

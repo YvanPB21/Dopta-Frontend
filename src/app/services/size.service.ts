@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Size} from '../models/size';
+import {Sex} from '../models/sex';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {Size} from '../models/size';
 })
 export class SizeService {
 
-  private urlEndPoint = 'http://localhost:8080/api/sizes';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/sizes';
 
   constructor(private http: HttpClient) {
   }
@@ -20,4 +21,7 @@ export class SizeService {
     return this.http.get<any>(this.urlEndPoint);
   }
 
+  getSize(id): Observable<Size> {
+    return this.http.get<any>(`${this.urlEndPoint}/${id}`);
+  }
 }

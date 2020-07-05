@@ -5,7 +5,7 @@ import {Promotion} from '../models/promotion';
 
 @Injectable()
 export class PromotionService {
-  private urlEndPoint = 'http://localhost:8080/api/promos';
+  private urlEndPoint = 'https://doptapp.herokuapp.com/api/promos';
 
   constructor(private http: HttpClient) {
   }
