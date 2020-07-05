@@ -90,7 +90,9 @@ export class RealizarPublicacionComponent implements OnInit {
   }
   create() {
     this.pet = new Pet(this.name, this.date_of_birth, this.image_url, this.specie, this.size, this.sex);
-    this.petService.create(this.pet).subscribe();
+    this.petService.create(this.pet).subscribe(data => {
+      console.log(data);
+    });
     console.log(this.pet);
     const f =  new Date();
     f.getDate();
@@ -103,6 +105,9 @@ export class RealizarPublicacionComponent implements OnInit {
     this.postService.create(post).subscribe();
     }
     console.log(post);
+  }
+  createPet() {
+
   }
   private buildForm() {
     this.form = this.formBuilder.group({
