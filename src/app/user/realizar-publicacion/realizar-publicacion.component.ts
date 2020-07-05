@@ -93,6 +93,7 @@ export class RealizarPublicacionComponent implements OnInit {
     this.pet = new Pet(this.name, this.date_of_birth, this.image_url, this.specie, this.size, this.sex);
     this.petService.create(this.pet).subscribe(data => {
       this.pet2 = data;
+      console.log(this.pet2);
     });
     console.log(this.pet);
     const f =  new Date();
