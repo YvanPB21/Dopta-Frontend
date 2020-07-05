@@ -21,7 +21,7 @@ export class PostViewComponent implements OnInit {
     this.postsService.getPosts().subscribe( response => {
       this.posts = response;
       let filtered = [];
-      if (object.sex !== ''){
+      if (object.sex ){
         for (let key in this.posts) {
           if (object.sex.name === this.posts[key].pet.sex.name){
             filtered.push(this.posts[key]);
@@ -30,7 +30,7 @@ export class PostViewComponent implements OnInit {
         this.posts = filtered;
         filtered = [];
       }
-      if (object.specie !== ''){
+      if (object.specie){
         for (let key in this.posts) {
           if (object.specie.name === this.posts[key].pet.species.name){
             filtered.push(this.posts[key]);
@@ -39,7 +39,7 @@ export class PostViewComponent implements OnInit {
         this.posts = filtered;
         filtered = [];
       }
-      if (object.size !== ''){
+      if (object.size){
         for (let key in this.posts) {
           if (object.size.name === this.posts[key].pet.size.name){
             filtered.push(this.posts[key]);
@@ -48,7 +48,7 @@ export class PostViewComponent implements OnInit {
         this.posts = filtered;
         filtered = [];
       }
-      if (object.search !== ''){
+      if (object.search ){
         for (let key in this.posts) {
           object.search = object.search.toLowerCase();
           const name = this.posts[key].pet.name.toLowerCase();

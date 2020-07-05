@@ -13,9 +13,9 @@ export class FiltersComponent implements OnInit {
   sexes: any;
   sizes: any;
   species: any;
-  sex = '';
-  size = '';
-  specie = '';
+  sex = undefined;
+  size = undefined;
+  specie = undefined;
   search = '';
   constructor(private specieService: SpecieService, private sexService: SexService,
               private sizeService: SizeService) { }
@@ -54,9 +54,9 @@ export class FiltersComponent implements OnInit {
   }
 
   removeFilters(): void {
-    this.sex = '';
-    this.specie = '';
-    this.size = '';
+    this.sex = undefined;
+    this.specie = undefined;
+    this.size = undefined;
     this.search = '';
     this.filter();
   }

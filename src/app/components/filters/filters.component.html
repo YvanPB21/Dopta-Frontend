@@ -1,19 +1,19 @@
 <div class="div">
   <mat-form-field appearance="fill" style="margin: 0 20px">
   <mat-label>Sexes</mat-label>
-  <mat-select (selectionChange)="sexSelected($event)">
+  <mat-select (selectionChange)="sexSelected($event)" [(ngModel)]="sex">
     <mat-option *ngFor="let sex of sexes" [value]="sex">{{sex.name}}</mat-option>
   </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill" style="margin: 0 20px">
     <mat-label>Species</mat-label>
-    <mat-select (selectionChange)="specieSelected($event)">
+    <mat-select (selectionChange)="specieSelected($event)" [(ngModel)]="specie">
       <mat-option *ngFor="let specie of species" [value]="specie">{{specie.name}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill" style="margin: 0 20px">
     <mat-label>Sizes</mat-label>
-    <mat-select (selectionChange)="sizeSelected($event)">
+    <mat-select (selectionChange)="sizeSelected($event)" [(ngModel)]="size">
       <mat-option *ngFor="let size of sizes" [value]="size">{{size.name}}</mat-option>
     </mat-select>
   </mat-form-field >
