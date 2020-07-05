@@ -33,6 +33,7 @@ export class RealizarPublicacionComponent implements OnInit {
   size: Size;
   poster: User;
   name: string;
+  pet2: Pet;
   // tslint:disable-next-line:variable-name
   date_of_birth: Date;
   // tslint:disable-next-line:variable-name
@@ -91,13 +92,13 @@ export class RealizarPublicacionComponent implements OnInit {
   create() {
     this.pet = new Pet(this.name, this.date_of_birth, this.image_url, this.specie, this.size, this.sex);
     this.petService.create(this.pet).subscribe(data => {
-      console.log(data);
+      this.pet2 = data;
     });
     console.log(this.pet);
     const f =  new Date();
     f.getDate();
     let post: Post;
-    post = new Post(f, this.description, null, this.pet, this.poster);
+    post = new Post(f, this.description, null, this.pet2, this.poster);
     console.log(this.poster);
     console.log(this.pet.id);
     console.log(post);
